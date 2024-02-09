@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Tour | Package Detail{% endblock title %}
+
+{% block content %}
+
+
+<div class="hero hero-inner">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mx-auto text-center">
+        <div class="intro-wrap">
+          <h1 class="mb-0">Details</h1>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="untree_co-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="owl-single dots-absolute owl-carousel">
+            <img src="{% static "images/slider-1.jpg"%}" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="{% static "images/slider-2.jpg"%}" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="{% static "images/slider-3.jpg"%}" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="{% static "images/slider-4.jpg"%}" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="{% static "images/slider-5.jpg"%}" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+          </div>
+        </div>
+        <div class="col-lg-5 pl-lg-5 ml-auto">
+          <h2 class="section-title mb-4">About {{package.name}} Package</h2>
+          <p>{{package.description}}</p>
+          <p>
+            <b>Journey Start Date:</b> {{package.journey_start_date}}<br>
+            <b>Duration:</b> {{package.duration}}<br>
+            <b>Meals:</b> {{package.meals}}
+          </p>
+          <p><b>&#9733; Places will be covered.</b></p>
+          <ul class="list-unstyled two-col clearfix">
+            {% for places in package.places.all %}
+              <li>{{places.name}}</li>
+            {% endfor %}
+          </ul>
+          <p><b>&#9733; Hotels</b></p>
+          <ul class="list-unstyled two-col clearfix">
+            {% for hotel in package.hotels.all %}
+              <li>{{hotel.name}}</li>
+            {% endfor %}
+          </ul>
+          <p><a href="{% url "book_view" %}" class="btn btn-primary" >Book only for {{package.price}} &#8377;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>  
+{% endblock content %}

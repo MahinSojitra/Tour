@@ -1,0 +1,108 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="{% static "favicon.png" %}">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap4" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+	<title>Tour | Sign up</title>
+</head>
+<body>
+  <div class="card m-5 p-5 border border-5 border-success">
+  <form class="row g-3" method="POST" action="{% url 'signup_view' %}">
+    {% csrf_token %}
+    <h1 class="text-center text-success mb-3">Sign Up</h1>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+      <label for="inputEmail4" class="form-label">Email address</label>
+      {{form.email}}
+      {% for error in form.email.errors %}
+        <font class="text-danger"><b>&nbsp; {{ error }} <br> </b></font>
+      {% endfor %}
+    </div>
+    <div class="col-md-3">
+      <label for="inputUsername4" class="form-label">Username</label>
+      {{form.username}}
+      {% for error in form.username.errors %}
+        <font class="text-danger"><b>&nbsp; {{ error }} <br> </b></font>
+      {% endfor %}
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+      <label for="inputEmail4" class="form-label">First name</label>
+      {{form.first_name}}
+      {% for error in form.first_name.errors %}
+        <font class="text-danger"><b>&nbsp; {{ error }} <br> </b></font>
+      {% endfor %}
+    </div>
+    <div class="col-md-3">
+      <label for="inputUsername4" class="form-label">Last name</label>
+      {{form.last_name}}
+      {% for error in form.last_name.errors %}
+        <font class="text-danger"><b>&nbsp; {{ error }} <br> </b></font>
+      {% endfor %}
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Contact no</label>
+      {{form.contact}}
+      {% for error in form.contact.errors %}
+        <font class="text-danger"><b>&nbsp; {{ error }} <br> </b></font>
+      {% endfor %}
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Password</label>
+      {{form.password1}}
+      {% for error in form.password1.errors %}
+        <font class="text-danger"><b>&nbsp; {{ error }} <br> </b></font>
+      {% endfor %}
+      {{form.password1.help_text}}
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Confirm password</label>
+      {{form.password2}} <br>
+      {% for error in form.password2.errors %}
+        <font class="text-danger"><b>&nbsp; {{ error }} <br> </b></font>
+      {% endfor %}
+      <ul> 
+        <li> {{form.password2.help_text}} </li>
+      </ul>
+      </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-12 text-center">
+      <input type="submit" class="btn btn-lg btn-success" value="Sign up">
+    </div>
+    <div class="col-12 text-center">
+      <p class="mb-0 text-muted">Already have an account? <a class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% url 'login_view'%}">Login</a></p>
+    </div>
+  </form>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
