@@ -27,7 +27,7 @@
 			{% for package in packages %}
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="{% url "package_detail_view" package.packageID %}" class="d-block mb-3"><img src="{% static "{{image.image}}" %}" alt="Image" class="img-fluid"></a>
+						<a href="{% url "package_detail_view" package.packageID %}" class="d-block mb-3"><img src="{% static "images/img_3.jpg" %}" alt="Image" class="img-fluid"></a>
 						<div class="d-flex align-items-center">
 							<div>
 								<h3><a href="#">{{package.name}}</a></h3>
